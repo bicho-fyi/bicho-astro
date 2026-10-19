@@ -1,13 +1,13 @@
 # Bicho for Astro
 
 [![npm version](https://img.shields.io/npm/v/@bicho-fyi/astro?color=4de034)](https://www.npmjs.com/package/@bicho-fyi/astro)
-[![Astro 6.x and 7.4+](https://img.shields.io/badge/Astro-6.x%20%7C%207.4%2B-BC52EE)](https://astro.build/)
+[![Astro 6.x and 7.x](https://img.shields.io/badge/Astro-6.x%20%7C%207.x-BC52EE)](https://astro.build/)
 [![Node.js 24+](https://img.shields.io/badge/Node.js-24%2B-43853d)](https://nodejs.org/)
 [![License Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](./LICENSE)
 
 Report browser errors and server request exceptions to [Bicho](https://bicho.fyi) from an Astro integration. Enable browser capture on static sites, server reporting on SSR sites, or both with separate projects and public keys.
 
-Supports Astro 6.x and Astro 7.4 or later 7.x. Requires Node 24+, matching `@bicho-fyi/javascript` 1.1.0, even if your Astro version supports an older Node release.
+Supports Astro 6.x and 7.x. Requires Node 24+, matching `@bicho-fyi/javascript` 1.1.0, even if your Astro version supports an older Node release.
 
 ## Install
 
@@ -65,7 +65,7 @@ The integration installs pre middleware through Astro's integration API. When `n
 
 Prerendered routes skip reporting. SSG builds therefore do not send server events. An SSR adapter is required for request-time server reporting. The middleware installs no process handlers and does not intercept build errors, errors before it runs or outside the request chain, errors after a streamed response has returned, or errors another handler catches and converts to a response. It does not infer an exception from a 500 status.
 
-Node SSR tests cover Astro 6.0.0 with `@astrojs/node` 10.0.2, Astro 6.4.8 with 10.1.4, and Astro 7.4.0 with 11.1.8. Local Cloudflare SSR tests cover Astro 6.4.8 with `@astrojs/cloudflare` 13.7.0 and Astro 7.4.0 with 14.4.0, both using Wrangler 4.125.0 and workerd 1.20261012.1 through `astro build` and `astro preview`. Use an adapter compatible with your Astro version.
+Node SSR tests cover Astro 6.0.0 with `@astrojs/node` 10.0.2, Astro 6.4.8 with 10.1.4, Astro 7.0.0/7.1.0/7.2.0 with 11.0.0, and Astro 7.3.1/7.4.0 with 11.1.8. Astro 7.3.0 has an upstream SSR build failure involving `astro/_internal/logger`, reproducible without this integration; use 7.3.1 or later instead. Local Cloudflare SSR tests cover Astro 6.4.8 with `@astrojs/cloudflare` 13.7.0 and Astro 7.4.0 with 14.4.0, both using Wrangler 4.125.0 and workerd 1.20261012.1 through `astro build` and `astro preview`. Use an adapter compatible with your Astro version.
 
 | Failure | Result | Middleware capture |
 | --- | --- | --- |
@@ -127,7 +127,7 @@ npm test
 npm pack
 ```
 
-Tests use native Node assertions, the three Node-adapter and two Cloudflare-adapter combinations above, a packed-and-installed integration and loopback collectors. The Cloudflare checks run the built app in real local workerd through the adapter's official preview command, with remote bindings disabled and local session KV. They verify SSR browser exceptions/rejections, separate browser/server routing, page/endpoint/downstream middleware exceptions, unchanged responses, successful and throwing prerender silence, client-artifact isolation, disabled capture, streaming limits and bounded delivery against a hanging collector. Run them alone after `npm run build` with `node --test test/cloudflare.test.mjs`.
+Tests use native Node assertions, the Node-adapter and two Cloudflare-adapter combinations above, a packed-and-installed integration and loopback collectors. The Cloudflare checks run the built app in real local workerd through the adapter's official preview command, with remote bindings disabled and local session KV. They verify SSR browser exceptions/rejections, separate browser/server routing, page/endpoint/downstream middleware exceptions, unchanged responses, successful and throwing prerender silence, client-artifact isolation, disabled capture, streaming limits and bounded delivery against a hanging collector. Run them alone after `npm run build` with `node --test test/cloudflare.test.mjs`.
 
 Browser checks use Puppeteer Core with Google Chrome at `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`; set `CHROME_PATH` to use another installation. Tests install pinned fixture dependencies and write their lockfiles under ignored `_temp/`; they never deploy or send to a hosted collector. Tests run serially because the Node fixtures reset `_temp/`. The npm tarball includes built JavaScript, declarations, this README, the changelog and license. Hosted Cloudflare and other SSR adapters are outside this verification scope.
 

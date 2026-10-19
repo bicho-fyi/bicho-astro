@@ -24,6 +24,6 @@
     "prepack": "npm run build"
   },
   "dependencies": { "@bicho-fyi/javascript": "1.1.0" },
-  "peerDependencies": { "astro": "^6.0.0 || ^7.4.0" },
+  "peerDependencies": { "astro": "^6.0.0 || ^7.0.0" },
   "devDependencies": { "astro": "7.4.0", "@astrojs/node": "11.1.8", "typescript": "7.0.2", "@types/node": "^24.0.0", "puppeteer-core": "25.14.0" }
 }
