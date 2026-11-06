@@ -1,12 +1,14 @@
 {
   "name": "@bicho-fyi/astro",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Bicho browser capture and request error reporting for Astro",
   "keywords": ["astro", "astro-integration", "withastro", "tooling", "bicho", "error-tracking", "observability", "opentelemetry", "ssg", "ssr"],
   "type": "module",
   "license": "Apache-2.0",
   "author": { "name": "FreshJuice", "email": "contact@freshjuice.dev", "url": "https://freshjuice.dev/" },
   "contributors": [{ "name": "Alex Zappa", "email": "alex@zappa.dev", "url": "https://alex.zappa.dev/" }],
+  "repository": { "type": "git", "url": "git+ssh://git@github.com/bicho-fyi/bicho-astro.git" },
+  "bugs": { "url": "https://github.com/bicho-fyi/bicho-astro/issues" },
   "homepage": "https://bicho.fyi",
   "publishConfig": { "access": "public" },
   "main": "./dist/index.js",
@@ -25,5 +27,5 @@
   },
   "dependencies": { "@bicho-fyi/javascript": "1.1.0" },
   "peerDependencies": { "astro": "^6.0.0 || ^7.0.0" },
-  "devDependencies": { "astro": "7.4.0", "@astrojs/node": "11.1.8", "typescript": "7.0.2", "@types/node": "^24.0.0", "puppeteer-core": "25.14.0" }
+  "devDependencies": { "astro": "7.4.7", "@astrojs/node": "11.1.11", "typescript": "7.0.2", "@types/node": "24.19.2", "puppeteer-core": "25.16.0" }
 }

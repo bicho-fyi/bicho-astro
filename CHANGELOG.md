@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## 1.1.0 (2026-11-06)
 
 - Widen the Astro peer dependency to `^6.0.0 || ^7.0.0` after packed-package SSG, browser and Node SSR checks on Astro 7.0.0, 7.1.0, 7.2.0 and 7.3.1.
 - Document Astro 7.3.0's upstream SSR build failure, reproducible without Bicho; use 7.3.1 or later.
+- Update development dependencies (`astro` 7.4.7, `@astrojs/node` 11.1.11, `puppeteer-core` 25.16.0, `@types/node` 24.19.2).
 
 ## 1.0.0 (2026-10-19)
 
