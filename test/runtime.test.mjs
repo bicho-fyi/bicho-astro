@@ -130,8 +130,8 @@ test(`packed integration runs in Astro ${astroVersion} SSG and Node SSR with sep
   const packOutput = await run('npm', ['pack', '--json', '--ignore-scripts', '--pack-destination', '_temp']);
   const [pack] = JSON.parse(packOutput);
   const paths = pack.files.map(file => file.path);
-  for (const path of ['dist/index.js', 'dist/index.d.ts', 'dist/middleware.js', 'dist/server.js', 'dist/server.d.ts', 'LICENSE', 'README.md', 'CHANGELOG.md']) assert.ok(paths.includes(path), path);
-  assert.ok(paths.every(path => /^(dist\/|README.md$|CHANGELOG.md$|LICENSE$|package.json$)/.test(path)));
+  for (const path of ['dist/index.js', 'dist/index.d.ts', 'dist/middleware.js', 'dist/server.js', 'dist/server.d.ts', 'LICENSE', 'README.md', 'CHANGELOG.md', 'ACKNOWLEDGEMENTS.md']) assert.ok(paths.includes(path), path);
+  assert.ok(paths.every(path => /^(dist\/|README.md$|CHANGELOG.md$|LICENSE$|ACKNOWLEDGEMENTS.md$|package.json$)/.test(path)));
 
   await file('package.json', JSON.stringify({ private: true, type: 'module', dependencies: { '@bicho-fyi/astro': `file:../${pack.filename}`, astro: astroVersion, '@astrojs/node': adapterVersion } }));
   await run('npm', ['install', '--ignore-scripts', '--no-audit', '--no-fund'], fixture);

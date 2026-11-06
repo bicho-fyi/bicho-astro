@@ -133,4 +133,4 @@ Browser checks use Puppeteer Core with Google Chrome at `/Applications/Google Ch
 
 ## License
 
-Copyright 2026 [Alex Zappa](https://alex.zappa.dev/) ([FreshJuice](https://freshjuice.dev/)). Apache-2.0; see [LICENSE](./LICENSE).
+Copyright 2026 [Alex Zappa](https://alex.zappa.dev/) ([FreshJuice](https://freshjuice.dev/)). Licensed under Apache-2.0. See [LICENSE](LICENSE) and [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md).

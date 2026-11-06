@@ -17,7 +17,7 @@
     ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
     "./server": { "types": "./dist/server.d.ts", "import": "./dist/server.js" }
   },
-  "files": ["dist", "README.md", "CHANGELOG.md", "LICENSE"],
+  "files": ["dist", "README.md", "CHANGELOG.md", "LICENSE", "ACKNOWLEDGEMENTS.md"],
   "engines": { "node": ">=24" },
   "scripts": {
     "build": "tsc",
